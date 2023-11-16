@@ -74,7 +74,7 @@ const Section__SVG_Loaders: FC<Props> = (props: Props) => {
     return (
         <Section
             id="svg_loaders"
-            title="Loaders"
+            title="Simple SVG | Loaders"
             description="Крутящиеся штуки, что бы отвлечь внимание пользователя пока <crocs>ты&nbsp;крадешь его данные</crocs> контент грузится"
         >
             <SectionLinks links={[{

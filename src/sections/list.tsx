@@ -80,7 +80,14 @@ const SectionList: FC<Props> = (props: Props) => {
                 title="CSS анимации"
                 description="Стилёвые штучки"
                 color="#2384f2"
-                checklist={['Общие понятия', 'Особенности delay', 'Динамический transition', 'Математические кривые']}
+                checklist={[
+                    'Transition',
+                    'Keyframes',
+                    'Sprite animation',
+                    'Триггеры',
+                    'Смещения макета',
+                    'CSS 3D',
+                ]}
 
             >
                 <Section__CSS_Transition />
@@ -95,6 +102,10 @@ const SectionList: FC<Props> = (props: Props) => {
                 title="SVG анимации"
                 description="Отдельный вид кайфа"
                 color="#d800cd"
+                checklist={[
+                    'Простые SVG анимации',
+                    'Lottie',
+                ]}
             >
                 <Section__SVG_Loaders />
                 <Section__SVG_Lottie />
@@ -104,6 +115,14 @@ const SectionList: FC<Props> = (props: Props) => {
                 title="JS анимации"
                 description="Тут делается качественно и геморройно "
                 color="#f27523"
+                checklist={[
+                    'Нативные анимации',
+                    'requestAnimationFrame | setInterval',
+                    'Интерполяция',
+                    'Математические функции',
+                    '2D и 3D',
+                    'Фильтры и шейдеры',
+                ]}
             >
                 <Section__JS_Raw />
                 <Section__JS_ReqAF />
@@ -118,6 +137,10 @@ const SectionList: FC<Props> = (props: Props) => {
                 title="Оптимизация"
                 description="Что бы сяоми и хуевеи клиентов не закипели"
                 color="#aa23f2"
+                checklist={[
+                    'Базовые приемы',
+                    'Computer science',
+                ]}
             >
                 <Section
                     id="base"
@@ -170,6 +193,13 @@ const SectionList: FC<Props> = (props: Props) => {
                 title="Дополнительно"
                 description="Че каво"
                 color="#00c217"
+                checklist={[
+                    'Невошедшее',
+                    'Примеры хороших и плохих анимаций',
+                    'Полезные ссылки',
+                    'Маскировка данных',
+                    'Наработки',
+                ]}
             >
                 <Section
                     id="add_unrecorded"
@@ -334,8 +364,8 @@ const SectionList: FC<Props> = (props: Props) => {
                 </Section>
                 <Section
                     id="add_add"
-                    title="Пускай полежит тут"
-                    description="Некоторые наработки"
+                    title="Некоторые наработки"
+                    description="Пускай полежит тут"
                 >
                     <TileList>
                         <Tile title="Игрушка про кота с конструктором по JSON данным">
