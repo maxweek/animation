@@ -1,0 +1,130 @@
+@import "../../../css/vars";
+@import "../../../css/typo";
+
+.jsTrack {
+    display: flex;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    align-items: center;
+    justify-content: center;
+    border-radius: 200rem;
+    border: 1px solid $color_border;
+    background: repeating-radial-gradient(
+            circle,
+            $color_border,
+            $color_border 1px,
+            transparent 1px,
+            transparent calc(1em - 1px)
+        ),
+        linear-gradient(to bottom, transparent calc(1rem - 2px), $color_border),
+        linear-gradient(to right, transparent calc(1rem - 2px), rgba(128, 128, 128, 0.214));
+    background-size:
+        100% 100%,
+        15px 15px,
+        15px 15px;
+    background-repeat: repeat-x repeat-y;
+    background-position: center center;
+    overflow: hidden;
+    :global(.__jsTrackBallRoundActive) & {
+        .jsTrack__ball.back {
+            transform: rotate(360deg);
+        }
+    }
+    .jsTrack__ball {
+        position: absolute;
+        width: 0;
+        height: 0;
+        &.back {
+            transition: 2s linear;
+            &:before {
+                background-color: $color_gray;
+            }
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: -0.125rem;
+            left: -0.125rem;
+            height: 12rem;
+            width: 0.25rem;
+            border-radius: 0.5rem;
+            background-color: $color_red;
+        }
+    }
+    .jsTrack__title {
+        position: absolute;
+        top: 60%;
+        font-size: 10px;
+        opacity: 0.5;
+    }
+}
+
+.withTransit {
+    .jsTrack {
+        .jsTrack__ball {
+            transition: 0.2s;
+        }
+    }
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    & > .jsTrack {
+        &:first-child {
+            flex-basis: calc(100% / 6);
+            // margin: auto 0;
+            margin-right: calc(100% / 2 - (100% / 6 / 2));
+            margin-left: calc(100% / 2 - (100% / 6 / 2));
+        }
+        flex-basis: calc(100% / 8 - 0.5rem);
+        flex-grow: 1;
+    }
+}
+
+
+.track {
+    position: relative;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .track__ball {
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+        left: 0;
+        z-index: 2;
+    }
+    .track__text {
+        position: absolute;
+        font-size: 12px;
+        opacity: 0.5;
+    }
+}
+
+
+.viewBox {
+    width: 100%;
+    height: 400px;
+    border: 1px solid $color_border;
+    border-radius: 1rem;
+    background: linear-gradient(to right, transparent 90%, rgba(128, 128, 128, 0.214)), linear-gradient(to bottom, transparent 90%, rgba(128, 128, 128, 0.214)) ;
+    background-size: 10px 10px;
+    background-repeat: repeat-x repeat-y;
+    position: relative;
+    display: flex;
+    // align-items: center;
+    // justify-content: center;
+    .viewBox__ball {
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+        // border-radius: 4rem;
+        background-color: $color_green;
+        pointer-events: none;
+    }
+}

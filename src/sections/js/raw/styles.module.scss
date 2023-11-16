@@ -1,0 +1,27 @@
+@import "../../../css/vars";
+@import "../../../css/typo";
+
+.jsTrack {
+    display: flex;
+    position: relative;
+    height: 4rem;
+    width: 100%;
+    .jsTrack__ball {
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 4rem;
+        background-color: $color_red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.withTransit {
+    .jsTrack {
+        .jsTrack__ball {
+            transition: .2s;
+        }
+    }
+}

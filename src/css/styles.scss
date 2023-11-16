@@ -1,0 +1,20 @@
+@import "vars";
+
+@import "fonts";
+@import "base";
+@import "typo";
+
+
+.App {
+    display: flex;
+    padding-left: $sidebar_width;
+    main {
+        flex-grow: 1;
+
+    }
+}
+
+crocs {
+    display: inline;
+    text-decoration: line-through;
+}

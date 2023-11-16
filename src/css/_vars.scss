@@ -1,0 +1,137 @@
+$color_white: #e0e4eb;
+$color_black: #323232;
+$color_bg: #282828;
+$color_gray_light: #3f3f3f;
+$color_gray: #656565;
+$color_disabled: #383838;
+$color_gray_lighten: #5d5d5d;
+$color_gray_darken: #6c6c6c;
+$color_gray_alpha: #6565657a;
+$color_border_lighten: #4e505384;
+$color_border: #54565984;
+$color_border_darken: #585a5d84;
+$color_shadow: #1e1e1e;
+$color_inputBg: #2d2d2d;
+$color_white_aplha: #31313176;
+$color_text: #c2c2c2;
+
+$color_red: #ff6827;
+$color_green: #a6eb24;
+$color_purple: #b727ff;
+$color_yellow: #ff9e27;
+
+
+// $color_primary: $color_blue;
+$color_primary: #2773ff;
+$color_primary_hover: lighten($color_primary, 10%);
+$color_primary_active: darken($color_primary, 10%);
+
+// $color_border: $color_primary;
+
+$color_selection_text: white;
+$color_selection_bg: $color_primary;
+
+$color_placeholder: $color_gray;
+
+$shadow_module: 0 4px 16px -8px $color_shadow;
+
+$header_height: 64px;
+$header_height_mob: 50px;
+
+$container_width: 1140px;
+$sidebar_width: 260px;
+
+$desk: 1200px;
+$tablet: 820px;
+$tablet_min: 821px;
+$mobile: 495px;
+$mobile_min: 496px;
+
+$font: "Proxima", "system-ui", sans-serif;
+$fontAlt: "Igra", "system-ui", sans-serif;
+
+@mixin scrollWithoutScroll() {
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+}
+@mixin scrollWithoutScrollHorizontal() {
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-height: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        height: 0px;
+        background: transparent;
+    }
+}
+@mixin transition() {
+    transition: 0.2s;
+    &:hover {
+        transition: 0.05s;
+    }
+    &:hover {
+        transition: 0.02s;
+    }
+}
+
+@mixin sideFaders($width: 12px, $color: $color_white, $inset: 0%) {
+    &:before,
+    &:after {
+        content: "";
+        display: block;
+        top: 0;
+        bottom: 0;
+        width: $width;
+        position: absolute;
+        pointer-events: none;
+        z-index: 2;
+    }
+    &:before {
+        left: 0;
+        background: linear-gradient(to right, $color $inset, transparentize($color, 1));
+    }
+    &:after {
+        right: 0;
+        background: linear-gradient(to left, $color $inset, transparentize($color, 1));
+    }
+}
+
+@mixin actions($margin: 4px) {
+    margin: -$margin;
+    & > * {
+        margin: $margin;
+    }
+}
+
+@mixin loadMask($dur: 1s, $delay: 0s, $opacity: 1, $br: 0.5rem) {
+    opacity: $opacity;
+    border-radius: $br;
+    overflow: hidden;
+    position: relative;
+    &:after {
+        $halfGr: $color_gray_alpha;
+        content: "";
+        background: linear-gradient(to right, $halfGr calc(100% / 3), transparent, $halfGr calc(100% / 3 * 2));
+        animation: loadMaskAnim #{$dur} #{$delay} infinite ease-in-out;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 300%;
+        pointer-events: none;
+    }
+}
+
+@keyframes loadMaskAnim {
+    0% {
+        translate: 0 0;
+    }
+    100% {
+        translate: calc(100% / -3 * 2) 0;
+    }
+}

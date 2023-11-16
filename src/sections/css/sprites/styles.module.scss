@@ -1,0 +1,61 @@
+@import "../../../css/vars";
+@import "../../../css/typo";
+
+.heroBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    transition: 1s;
+    &:global(.__alt) {
+        .heroBox__inner {
+            background: url(./assets/hero_run_.png) no-repeat;
+            background-size: 1400%;
+        }
+        &:global(.__jump) {
+            .heroBox__inner {
+                background: url(./assets/hero_jump_.png) no-repeat;
+                background-size: 1800%;
+                animation: heroJump steps(17) 1s infinite;
+            }
+        }
+    }
+    &:global(.__jump) {
+        .heroBox__inner {
+            background: url(./assets/hero__jump.png) no-repeat;
+            background-size: 1800%;
+            animation: heroJump steps(17) 1s infinite;
+        }
+    }
+    img {
+        width: 100%;
+    }
+    .heroBox__inner {
+        width: 300px;
+        height: 300px;
+        background: url(./assets/hero__run.png) no-repeat;
+        background-size: 1400%;
+        animation: heroRun steps(13) 1s infinite;
+    }
+}
+
+@keyframes heroRun {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+@keyframes heroJump {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        transform: translateY(-30%);
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}

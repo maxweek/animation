@@ -1,0 +1,64 @@
+@import "../../../css/vars";
+@import "../../../css/typo";
+
+.sidebar {
+    position: fixed;
+    // top: $header_height;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    background-color: $color_gray_light;
+    box-shadow: inset -4px 0 1rem -0.75rem $color_shadow;
+    width: $sidebar_width;
+    display: flex;
+    .sidebar__inner {
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .sidebar__top {
+    }
+    .sidebar__title {
+        @include h2();
+        text-align: right;
+    }
+    .sidebar__author {
+        @include t2();
+        text-align: right;
+    }
+    .sidebar__nav {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        .nav__main {
+            padding: 0.25rem 0;
+            margin: 0.25rem 0;
+            border-right: 1px solid;
+            padding-right: 0.25rem;
+            .nav__main_title {
+                @include t1();
+                @include transition();
+                cursor: pointer;
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+            .nav__main_list {
+                // padding-right: 0.5rem;
+            }
+        }
+        .nav__sect {
+            .nav__sect_title {
+                @include t2();
+                @include transition();
+                cursor: pointer;
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+}

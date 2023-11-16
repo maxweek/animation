@@ -1,0 +1,18 @@
+
+.advantages {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .item {
+        font-size: 1rem;
+        line-height: 1;
+        padding-left: 1.5rem;
+        position: relative;
+        &:before {
+            content: '🔸';
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}

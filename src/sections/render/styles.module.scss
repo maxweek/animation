@@ -1,0 +1,26 @@
+@import "../../../css/vars";
+@import "../../../css/typo";
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: $color_primary;
+    color: $color_white;
+    .header__inner {
+        padding: 1rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: $header_height;
+    }
+    .header__title {
+        @include h3();
+    }
+    .header__author {
+        @include t2();
+        text-align: right;
+    }
+}

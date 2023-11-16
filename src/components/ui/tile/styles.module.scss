@@ -1,0 +1,45 @@
+@import "../../../css/vars";
+@import "../../../css/typo";
+
+.tile {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: transparentize($color_black, 0.9);
+    backdrop-filter: blur(200px);
+    border: 1px solid $color_border;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 100%;
+    max-width: 100%;
+    .tile__title {
+        @include h4();
+        margin-bottom: 1rem;
+        & + .tile__description {
+            margin-top: -0.5rem;
+        }
+    }
+    .tile__description {
+        @include t2();
+        margin-bottom: 1rem;
+    }
+    .tile__body {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        flex-grow: 1;
+        & > img {
+            width: 100%;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+    }
+}
+
+.tileList {
+    display: flex;
+    gap: 1rem;
+    & > * {
+        flex-basis: 100%;
+    }
+}

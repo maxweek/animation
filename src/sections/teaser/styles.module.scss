@@ -1,0 +1,65 @@
+@import "../../css/vars";
+@import "../../css/typo";
+
+.box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    &:global(.__show){
+        .image {
+            animation: 0.6s showIn forwards ease-in-out;
+        }
+    }
+    .image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: scaleX(0.01) scaleY(0.01);
+        overflow: hidden;
+        border-radius: 200rem;
+        canvas {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
+        }
+    }
+    .inner {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 0;
+    }
+    .title {
+        font-size: 4rem;
+        line-height: auto;
+        // font-weight: ;
+
+    }
+}
+
+@keyframes showIn {
+    0% {
+        transform: scaleX(0.01) scaleY(0.01);
+        border-radius: 200rem;
+        filter: brightness(10);
+    }
+    50% {
+        transform: scaleX(1) scaleY(0.01);
+        border-radius: 2rem;
+    }
+    100% {
+        border-radius: 0rem;
+        filter: none;
+        transform: scaleY(1);
+    }
+}

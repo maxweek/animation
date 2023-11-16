@@ -1,0 +1,162 @@
+@import "../../../css/vars";
+@import "../../../css/typo";
+
+@mixin btnPaliter($color){
+    background-color: #{$color};
+    &:hover {
+        background-color: lighten($color, 10%);
+    }
+    &:active {
+        background-color: darken($color, 10%);
+    }
+}
+
+.btn {
+    user-select: none;
+    cursor: pointer;
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: none;
+    border: none;
+    position: relative;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    @include transition();
+    @include t1();
+    &:before,
+    &:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .1s;
+        opacity: 0;
+        pointer-events: none;
+        user-select: none;
+    }
+    &:before {
+        content: '';
+        background-color: $color_white_aplha;
+    }
+    &:after {
+        content: "";
+        background: url(../../../public/loader_white.svg) no-repeat center center;
+        width: 2rem;
+        height: 2rem;
+        z-index: 20;
+        background-size: contain;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    &.__primary {
+        color: $color_white;
+        background-color: $color_primary;
+        // &:focus,
+        &:hover {
+            background-color: $color_primary_hover;
+        }
+        &:active {
+            background-color: $color_primary_active;
+        }
+        .icon svg * {
+            fill: currentColor
+        }
+    }
+    &.__secondary {
+        color: $color_black;
+        background-color: $color_gray_light;
+        // &:focus,
+        &:hover {
+            background-color: $color_gray_lighten;
+        }
+        &:active {
+            background-color: $color_gray_darken;
+        }
+    }
+    &.__tretiary {
+
+    }
+    &.__indicator {
+        background-color: transparent;
+        color: $color_black;
+        &:after {
+            background-image: url(../../../public/loader.svg);
+        }
+        &.__disabled {
+            background-color: transparent;
+        }
+        &.__loading {
+            background-color: $color_border;
+        }
+    }
+
+    &.__icon {
+        .icon {
+            margin-right: 0;
+        }
+    }
+    &.__asIcon {
+        padding: .5rem;
+        svg * {
+            fill: $color_white;
+        }
+    }
+    &.__loading {
+        pointer-events: none;
+        color: transparent;
+        &:before,
+        &:after {
+            opacity: 1;
+        }
+    }
+    &.__fGrow {
+        flex-grow: 1;
+    }
+    .icon {
+        display: flex;
+        margin-right: 0.75rem;
+    }
+    &.__fill {
+        flex-grow: 1;
+    }
+    &.__disabled,
+    &.__noActions {
+        pointer-events: none;
+    }
+    &.__disabled {
+        color: $color_white;
+        background-color: $color_disabled;
+    }
+    &:focus,
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.btn {
+
+    &:not(.__disabled).__primary {
+        &.__yellow {
+            @include btnPaliter($color_yellow);
+        }
+        &.__red {
+            @include btnPaliter($color_red);
+        }
+        &.__green {
+            @include btnPaliter($color_green);
+        }
+        &.__purple {
+            @include btnPaliter($color_purple);
+        }
+    }
+}

@@ -1,0 +1,50 @@
+@import "../../../css/vars";
+@import "../../../css/typo";
+
+.cubeBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    &:global(.__alt) {
+        .cubeBox__inner {
+            &:hover {
+                margin-left: -4rem;
+            }
+        }
+    }
+    .cubeBox__outer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid $color_border;
+        padding: 1rem;
+        max-width: 460px;
+        p {
+            // max-width: 200px;
+        }
+    }
+    .cubeBox__inner {
+        transition: 0.2s;
+        min-width: 6rem;
+        height: 6rem;
+        background-color: $color_gray;
+        opacity: 0.5;
+        padding: 1rem;
+        &:before {
+            content: "";
+            min-width: 4rem;
+            background-color: $color_gray_darken;
+            height: 4rem;
+            display: block;
+        }
+        &:hover {
+            background-color: $color_primary;
+            opacity: 1;
+            margin-top: 4rem;
+            padding-left: 4rem;
+        }
+    }
+}

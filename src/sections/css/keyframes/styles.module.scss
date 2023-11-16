@@ -1,0 +1,226 @@
+@import "../../../css/vars";
+@import "../../../css/typo";
+
+.keyFramesBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+    .keyFramesBox__inner {
+        width: 8rem;
+        height: 8rem;
+        animation: keyFramesBox 4s infinite ease-in-out;
+    }
+}
+
+@keyframes keyFramesBox {
+    0% {
+        background-color: $color_red;
+        transform: none;
+    }
+    10% {
+        background-color: $color_purple;
+        transform: translateY(100%) skewX(20deg) translateX(-100%);
+        border-radius: 10rem;
+    }
+    25% {
+        background-color: $color_purple;
+        transform: translateY(-100%) skewX(20deg);
+        border-radius: 10rem;
+    }
+    50% {
+        background-color: $color_primary;
+        transform: translateX(100%) translateY(100%) rotate(90deg);
+        border-radius: 10rem;
+    }
+    75% {
+        background-color: $color_green;
+        transform: translateX(100%) scale(0.5);
+    }
+    100% {
+        background-color: $color_red;
+        transform: rotate(-180deg);
+    }
+}
+
+.withoutTransit {
+    outline: none;
+    * {
+        transition-duration: unset !important;
+    }
+}
+.tracks {
+    :global(.track) {
+        :global(.track__ball) {
+            animation: track 2s infinite;
+            animation-direction: alternate;
+        }
+        &:global(.kf11) :global(.track__ball) {
+            animation-timing-function: linear;
+        }
+        &:global(.kf12) :global(.track__ball) {
+            animation-timing-function: ease-in;
+        }
+        &:global(.kf13) :global(.track__ball) {
+            animation-timing-function: ease-out;
+        }
+        &:global(.kf14) :global(.track__ball) {
+            animation-timing-function: ease-in-out;
+        }
+        &:global(.kf15) :global(.track__ball) {
+            animation-timing-function: steps(10);
+        }
+        &:global(.kf16) :global(.track__ball) {
+            animation-timing-function: cubic-bezier(0.36, -0.76, 0.47, 1.69);
+            // animation:;
+        }
+    }
+}
+
+@keyframes track {
+    0% {
+        left: 0;
+        background-color: $color_red;
+        border-radius: 4rem;
+    }
+    100% {
+        left: calc(100% - 4rem);
+        background-color: $color_green;
+        border-radius: none;
+    }
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    &:global(.tr22) {
+    }
+    &:global(.tr21) {
+    }
+    &:global(.tr23) {
+        &:global(.__active) {
+            .grid__item {
+                @for $i from 1 to 20 {
+                    &:nth-child(#{$i}) {
+                        transition-delay: $i / 10 + s;
+                    }
+                }
+            }
+        }
+    }
+    &:global(.tr31),
+    &:global(.tr32),
+    &:global(.tr33) {
+        gap: 0.1rem;
+        .grid__item {
+            flex-basis: calc(10% - 0.1rem);
+            &:hover {
+                // transform: rotate(90deg);
+                background-color: $color_primary;
+                opacity: 1;
+            }
+        }
+    }
+    &:global(.tr33) {
+        .grid__item {
+            @include transition();
+        }
+    }
+    &:global(.__active) {
+        .grid__item {
+            transform: rotate(90deg);
+            background-color: $color_primary;
+            opacity: 1;
+        }
+    }
+    .grid__item {
+        flex-basis: calc(15% - 0.5rem);
+        flex-grow: 1;
+        aspect-ratio: 1/1;
+        background-color: $color_gray;
+        opacity: 0.5;
+        transition: 0.2s;
+    }
+}
+
+.circleKFBox {
+    width: 100%;
+    height: 400px;
+    border: 1px solid $color_border;
+    border-radius: 1rem;
+    background: linear-gradient(to right, transparent 90%, rgba(128, 128, 128, 0.214)),
+        linear-gradient(to bottom, transparent 90%, rgba(128, 128, 128, 0.214));
+    background-size: 10px 10px;
+    background-repeat: repeat-x repeat-y;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    .circleKFBox__item {
+        width: 10rem;
+        height: 10rem;
+        position: absolute;
+        background-color: #fd3c1b;
+        border-radius: 20rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        animation: cicKFBox 2s infinite ease-in-out;
+        box-shadow: 0 0 1rem -.75rem $color_black;
+        @for $i from 1 to 20 {
+            &:nth-child(#{$i}){
+                // animation-delay: $i / 20 + s;
+                width: $i * 2 + 10rem;
+                height: $i * 2 + 10rem;
+                z-index: 20 - $i;
+            }
+        }
+        img {
+            margin-bottom: -12px;
+        }
+    }
+}
+
+@keyframes cicKFBox {
+    0% {
+        background-color: #fd3c1b;
+        transform: none;
+        transform: translateX(200px);
+        opacity: 1;
+    }
+    25% {
+        background-color: $color_green;
+    }
+    33.33% {
+        scale: 1.4;
+    }
+    50% {
+        background-color: $color_primary;
+        transform: translateX(-200px) scaleY(1);
+    }
+    66.66% {
+        scale: 1;
+    }
+    75% {
+        background-color: $color_purple;
+    }
+    100% {
+        background-color: #fd3c1b;
+        transform: none;
+        transform: translateX(200px);
+        opacity: 1;
+    }
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+    &>*{
+        flex-grow: 1;
+    }
+}

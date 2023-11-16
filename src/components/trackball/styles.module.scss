@@ -1,0 +1,32 @@
+@import "../../css/vars";
+@import "../../css/typo";
+
+
+.track {
+    width: 100%;
+    display: flex;
+    position: relative;
+    height: 4rem;
+    .track__ball {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 4rem;
+        background-color: $color_red;
+        transition: 1s;
+        position: absolute;
+    }
+    .track__text {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        @include t2();
+        margin: auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.2;
+    }
+}

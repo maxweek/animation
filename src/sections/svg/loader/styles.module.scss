@@ -1,0 +1,175 @@
+@import "../../../css/vars";
+@import "../../../css/typo";
+
+.rainbowLoader {
+    :global(.image) {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+    }
+    :global(.image__svg) {
+        width: 100%;
+        // animation: rotate 3s infinite;
+        svg {
+            width: 100%;
+        }
+    }
+    &:global(.sv1) {
+        position: relative;
+        :global(.sv1_i) {
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            svg {
+                filter: blur(50px) saturate(2);
+            }
+        }
+    }
+    &:global(.sv2) {
+    }
+    &:global(.sv3) {
+    }
+    &:global(.sv4) {
+    }
+    svg * {
+        animation: rainbow 4s infinite;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    40% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+@keyframes rainbow {
+    0% {
+        stroke: $color_yellow;
+        stroke-dasharray: 200 100;
+    }
+    12.5% {
+        stroke: $color_purple;
+    }
+    25% {
+        stroke: $color_green;
+    }
+    37.5% {
+        stroke: $color_yellow;
+    }
+    50% {
+        stroke: cyan;
+        stroke-dasharray: 2 10;
+    }
+    62.5% {
+        stroke: $color_red;
+    }
+    75% {
+        stroke: $color_primary;
+    }
+    87.5% {
+        stroke: salmon;
+    }
+    100% {
+        stroke-dasharray: 200 100;
+        stroke: $color_yellow;
+    }
+}
+
+.svgtest {
+    width: 4rem;
+    height: 4rem;
+    background-color: $color_red;
+}
+
+.svgPathBox {
+    position: relative;
+    width: 100%;
+    &:global(.__rainbow) {
+        .svgPathBox__back {
+            svg {
+                path {
+                    animation: rainbow 4s infinite;
+                }
+            }
+        }
+    }
+    &:global(.__ball),
+    &:global(.__ball2) {
+        .svgPathBox__back {
+            svg {
+                path {
+                    stroke: $color_gray;
+                    // stroke-dashoffset: 5 5;
+                    stroke-dasharray: 5 5;
+                    stroke-width: 1;
+                }
+            }
+        }
+        .svgPathBox__ball {
+            width: 4rem;
+            height: 4rem;
+            background-color: $color_primary;
+            position: absolute;
+        }
+    }
+
+    &:global(.__rocket),
+    &:global(.__rocket2) {
+        &:hover .svgPathBox__back svg path {
+            opacity: 1;
+        }
+        .svgPathBox__back {
+            aspect-ratio: auto;
+            svg {
+                path {
+                    stroke: $color_gray;
+                    // stroke-dashoffset: 5 5;
+                    stroke-dasharray: 5 5;
+                    stroke-width: 0.2;
+                    opacity: 0;
+                    transition: .2s;
+                }
+            }
+        }
+        .svgPathBox__ball {
+            width: 4rem;
+            height: 4rem;
+            background-color: $color_primary;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+                width: 160px;
+                position: absolute;
+                transform: rotate(24deg) translateY(-20%);
+            }
+        }
+    }
+    .svgPathBox__ballWrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .svgPathBox__back {
+        width: 100%;
+        aspect-ratio: 1/1;
+        svg {
+            width: 100%;
+            height: auto;
+            path {
+                stroke-width: 20;
+                stroke-linecap: round;
+                stroke: $color_purple;
+            }
+        }
+    }
+}

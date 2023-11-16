@@ -1,0 +1,10 @@
+
+.video {
+    display: flex;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+}

@@ -1,0 +1,132 @@
+@import "../../../css/vars";
+@import "../../../css/typo";
+
+.withoutTransit {
+    outline: none;
+    * {
+        transition-duration: unset !important;
+    }
+}
+
+:global(.track) {
+    &:global(.tr11),
+    &:global(.tr12),
+    &:global(.tr13) {
+        &:global(.__active) {
+            :global(.track__ball) {
+                left: calc(100% - 4rem);
+            }
+        }
+        :global(.track__ball) {
+            left: 0;
+        }
+    }
+    &:global(.tr12),
+    &:global(.tr13) {
+        :global(.track__ball) {
+            transition-duration: 2s;
+        }
+        &:global(.__active) {
+            :global(.track__ball) {
+                border-radius: 0;
+                background-color: $color_green;
+            }
+        }
+    }
+    &:global(.tr13) {
+        :global(.track__ball) {
+            transition-delay: 1s;
+        }
+    }
+    &:global(.tr41),
+    &:global(.tr42),
+    &:global(.tr43),
+    &:global(.tr44),
+    &:global(.tr45),
+    &:global(.tr46) {
+        &:global(.__active) {
+            :global(.track__ball) {
+                border-radius: 0;
+                background-color: $color_green;
+                left: calc(100% - 4rem);
+            }
+        }
+        :global(.track__ball) {
+            left: 0;
+            transition: 2s;
+        }
+    }
+    &:global(.tr41) :global(.track__ball) {
+        transition-timing-function: ease;
+    }
+    &:global(.tr42) :global(.track__ball) {
+        transition-timing-function: ease-in;
+    }
+    &:global(.tr43) :global(.track__ball) {
+        transition-timing-function: ease-out;
+    }
+    &:global(.tr44) :global(.track__ball) {
+        transition-timing-function: ease-in-out;
+    }
+    &:global(.tr45) :global(.track__ball) {
+        transition-timing-function: steps(10);
+    }
+    &:global(.tr46) :global(.track__ball) {
+        transition-timing-function: cubic-bezier(0.36,-0.76, 0.47, 1.69);
+    }
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    &:global(.tr22) {
+    }
+    &:global(.tr21) {
+    }
+    &:global(.tr23) {
+        &:global(.__active) {
+            .grid__item {
+                @for $i from 1 to 20 {
+                    &:nth-child(#{$i}) {
+                        transition-delay: calc($i / 10) + s;
+                    }
+                }
+            }
+        }
+    }
+    &:global(.tr31),
+    &:global(.tr32),
+    &:global(.tr33) {
+        gap: 0rem;
+        .grid__item {
+            flex-basis: calc(10% - 0.1rem);
+            &:hover {
+                // transform: rotate(90deg);
+                background-color: $color_primary;
+                opacity: 1;
+            }
+        }
+    }
+    &:global(.tr33) {
+        .grid__item {
+            @include transition();
+        }
+    }
+    &:global(.__active) {
+        .grid__item {
+            transform: rotate(90deg);
+            background-color: $color_primary;
+            opacity: 1;
+        }
+    }
+    .grid__item {
+        flex-basis: calc(15% - 0.5rem);
+        flex-grow: 1;
+        aspect-ratio: 1/1;
+        background-color: $color_gray;
+        opacity: 0.5;
+        transition: 0.2s;
+        border: 1px solid $color_border;
+    }
+}

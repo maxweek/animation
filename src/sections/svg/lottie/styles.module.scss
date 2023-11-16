@@ -1,0 +1,61 @@
+@import "../../../css/vars";
+@import "../../../css/typo";
+
+.rainbowLoader {
+    &:global(.sv1){
+        position: relative;
+        :global(.sv1_i){
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            svg {
+                filter: blur(50px) saturate(2);
+            }
+        }
+    }
+    &:global(.sv2){
+
+    }
+    &:global(.sv3){
+
+    }
+    &:global(.sv4){
+
+    }
+    svg * {
+        stroke-opacity: 1;
+        animation: rainbow 4s infinite;
+    }
+}
+@keyframes rainbow {
+    0% {
+        stroke: $color_yellow;
+        stroke-dasharray: 200 100;
+    }
+    12.5% {
+        stroke: $color_purple;
+    }
+    25% {
+        stroke: $color_green;
+    }
+    37.5% {
+        stroke: $color_yellow;
+    }
+    50% {
+        stroke: cyan;
+        stroke-dasharray: 2 10;
+    }
+    62.5% {
+        stroke: $color_red;
+    }
+    75% {
+        stroke: $color_primary;
+    }
+    87.5% {
+        stroke: salmon
+    }
+    100% {
+        stroke-dasharray: 200 100;
+        stroke: $color_yellow;
+    }
+}

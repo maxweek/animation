@@ -1,0 +1,18 @@
+
+.gui {
+    // position: fixed;
+    // display: flex;
+    // top: 0;
+    // right: 0;
+    .stats {
+        &>div {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: auto !important;
+        }
+    }
+}
+:global(.dg.a){
+    margin-right: 0 !important;
+}

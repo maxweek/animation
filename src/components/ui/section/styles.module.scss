@@ -1,0 +1,109 @@
+@import "../../../css/vars";
+@import "../../../css/typo";
+
+.section {
+    padding: 4rem 0;
+    min-height: 100vh;
+    & + .section {
+        border-top: 1px solid $color_border;
+    }
+    .inner {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .titleBox {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        .title {
+            @include h2();
+        }
+        .description {
+            @include t1();
+            max-width: 50%;
+        }
+    }
+}
+.mainSection {
+    padding-top: 4rem;
+    min-height: 100vh;
+    border-top: 4px solid;
+    &:global(.__active) {
+    }
+    // & + .mainSection {
+    // }
+    .titleBox {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+        &:global(.__main) {
+            max-width: 50%;
+            padding: 1rem;
+            margin-left: -1rem;
+            border-radius: 1rem;
+            transform-origin: bottom left;
+            transform: skew(-10deg);
+            position: relative;
+            overflow: hidden;
+            &:before {
+                content: "";
+                position: absolute;
+                left: 80%;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                background: linear-gradient(to right, transparent, $color_black);
+                background-size: 2.4rem;
+            }
+            .title {
+                @include h1();
+            }
+        }
+    }
+}
+.miniSection {
+    padding-top: 2rem;
+    // & + .mainSection {
+    // }
+    .titleBox {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        &:global(.__mini) {
+            .title {
+                @include h3();
+            }
+        }
+    }
+    .inner {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.sectionLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+
+.checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    @include h4();
+    &:before {
+        content: "Темы:";
+    }
+    .checklist__item {
+        @include t2();
+        &:before {
+            content: "✔";
+            color: $color_green;
+            margin-right: 0.25rem;
+        }
+    }
+}
